@@ -1,0 +1,13 @@
+{
+  "name": "stabilo.js",
+  "version": "0.1.0",
+  "private": false,
+  "homepage": "https://dangeffroy.github.io/stabilo.js",
+  "repository": "https://github.com/dangeffroy/stabilo.js",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "materialize-css": "^0.100.0"
+  },
+  "devDependencies": {},
+  "scripts": {}
+}
