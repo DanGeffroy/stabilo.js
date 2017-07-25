@@ -1,0 +1,20 @@
+span.highlight {
+  background-color:						#FFFF00;
+  color:									#000000;
+  text-shadow:							1px 1px 1px #C0C0C0;
+}
+span.red {
+  background-color:						#E53935;
+  color:									#FFFFFF;
+  text-shadow:							1px 1px 1px #C0C0C0;
+}
+span.blue {
+  background-color:						#18FFFF;
+  color:									#000000;
+  text-shadow:							1px 1px 1px #C0C0C0;
+}
+span.green {
+  background-color:						#AEEA00;
+  color:									#FFFFFF;
+  text-shadow:							1px 1px 1px #C0C0C0;
+}
