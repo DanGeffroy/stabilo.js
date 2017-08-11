@@ -15,13 +15,6 @@ The javascript method to use to apply filter is the following:
 applyFilter(elmt, elmSelector, parentSelector, underlineClass, hideOnFilter, counterId)
 ```
 
-
-var DEFAULT_ELEMENT_SELECTOR = ".element";
-var DEFAULT_PARENT_SELECTOR = ".elements-container";
-var DEFAULT_UNDERLINE_CLASS = "underline";
-var DEFAULT_COUNTER_ID = "filter-counter";
-var DEFAULT_FILTER_HIDE = false;
-
 With parameters:
 
 | Parameter        | Type      | Required | Default value         | Description                                                     |
