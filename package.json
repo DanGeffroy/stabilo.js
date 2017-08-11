@@ -1,15 +1,15 @@
 {
-  "name": "stabilo.js",
-  "version": "0.1.0",
-  "private": false,
-  "homepage": "https://dangeffroy.github.io/stabilo.js",
-  "repository": "https://github.com/dangeffroy/stabilo.js",
+  "name":         "stabilo.js",
+  "version":      "0.1.0",
+  "private":      false,
+  "homepage":    "https://dangeffroy.github.io/stabilo.js",
+  "repository":  "https://github.com/dangeffroy/stabilo.js",
   "dependencies": {
-    "colors": "^1.1.2",
-    "fs-extra": "^4.0.0",
-    "jquery": "^3.2.1",
-    "materialize-css": "^0.100.0"
+    "colors": "        ^1.1.2",
+    "fs-extra":        "^4.0.0",
+    "jquery":          "^3.2.1",
+    "materialize-css": "^0.100.0",
   },
   "devDependencies": {},
-  "scripts": {}
+  "scripts": {},
 }

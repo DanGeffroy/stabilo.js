@@ -4,47 +4,71 @@
 
 var DEFAULT_ELEMENT_SELECTOR = ".element";
 var DEFAULT_PARENT_SELECTOR = ".elements-container";
-var DEFAULT_HIGHLIGHT_CLASS = "highlight";
+var DEFAULT_UNDERLINE_CLASS = "underline";
+var DEFAULT_COUNTER_ID = "filter-counter";
 var DEFAULT_FILTER_HIDE = false;
 
-function applyFilter(elmt, elmSelector, parentSelector, highlightClass, hideOnFilter) {
-
-	console.log("called")
+function applyFilter(elmt, elmSelector, parentSelector, underlineClass, hideOnFilter, counterId) {
 	if (!elmSelector) {
 		elmSelector = DEFAULT_ELEMENT_SELECTOR;
 	}
 	if (!parentSelector) {
 		parentSelector = DEFAULT_PARENT_SELECTOR;
 	}
-	if (!highlightClass) {
-		highlightClass = DEFAULT_HIGHLIGHT_CLASS;
+	if (!underlineClass) {
+		underlineClass = DEFAULT_UNDERLINE_CLASS;
 	}
 	if (hideOnFilter === undefined) {
 		hideOnFilter = DEFAULT_FILTER_HIDE;
 	}
-	var input, filter, table, udln;
+	if (counterId === undefined) {
+		counterId = DEFAULT_COUNTER_ID;
+	}
+	var input, filter, table, udln, counter;
 	input = $(elmt);
 	filter = removeAccents(input.val().toUpperCase());
 	table = $(parentSelector + ' ' + elmSelector).closest(parentSelector);
-	udln = table.find(elmSelector + ' .' + highlightClass);
+	udln = table.find(elmSelector + ' .' + underlineClass);
 	udln.contents().unwrap();
 	udln.remove();
+	counter = 0;
 	table.find(elmSelector).each(function(i, e) {
 		var elm = $(e);
 		var h1 = elm.html();
 		var t1 = elm.text();
 		var txt = removeAccents(t1.toUpperCase());
-		if (txt.indexOf(filter) > -1) {
-			var r1 = t1.substr(txt.indexOf(filter),filter.length);
-			// Use regex to not replace html code
-			elm.html(h1.replace(new RegExp('(>[^<]*)(' + r1 + ')'), '$1<span class="' + highlightClass + '">$2</span>'));
-			if (hideOnFilter) {
-				e.style.display = 'block';
+		if (filter.length > 0 && txt.indexOf(filter) > -1) {
+			var indexes = [];
+			var i = 0;
+			while (i < txt.length && txt.indexOf(filter, i) > -1) {
+				i = txt.indexOf(filter, i);
+				indexes.push(i);
+				i++;
+			}
+			for (var k = 0 ; k < indexes.length ; k++) {
+				var r1 = t1.substr(indexes[k], filter.length);
+				/* Use regex to not replace html code */
+				elm.html(h1.replace(new RegExp('(>[^<]*)(' + r1 + ')', 'g'), '$1<span class="' + underlineClass + '">$2</span>'));
+				if (hideOnFilter) {
+					e.style.display = 'block';
+				}
+				counter++;
+				h1 = elm.html();
+				t1 = elm.text();
+				txt = removeAccents(t1.toUpperCase());
 			}
 		} else if (hideOnFilter) {
 			e.style.display = 'none';
 		}
 	});
+	counterElm = document.getElementById(counterId);
+	if (counterElm) {
+		if (filter.length > 0) {
+			counterElm.innerHTML = 'Found <b>' + counter + '</b> results';
+		} else {
+			counterElm.innerHTML = '&nbsp;';
+		}
+	}
 }
 
 var defaultDiacriticsRemovalMap = [

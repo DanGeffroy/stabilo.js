@@ -1,20 +1,43 @@
-span.highlight {
-  background-color:						#FFFF00;
-  color:									#000000;
-  text-shadow:							1px 1px 1px #C0C0C0;
+span.underline {
+	background-color:						#FFFF00;
+	color:									#000000;
+	text-shadow:							1px 1px 1px #C0C0C0;
 }
+
 span.red {
-  background-color:						#E53935;
-  color:									#FFFFFF;
-  text-shadow:							1px 1px 1px #C0C0C0;
+	background-color:						#E53935;
+	color:									#FFFFFF;
+	text-shadow:							1px 1px 1px #C0C0C0;
 }
+
 span.blue {
-  background-color:						#18FFFF;
-  color:									#000000;
-  text-shadow:							1px 1px 1px #C0C0C0;
+	background-color:						#18FFFF;
+	color:									#000000;
+	text-shadow:							1px 1px 1px #C0C0C0;
 }
+
 span.green {
-  background-color:						#AEEA00;
-  color:									#FFFFFF;
-  text-shadow:							1px 1px 1px #C0C0C0;
+	background-color:						#AEEA00;
+	color:									#FFFFFF;
+	text-shadow:							1px 1px 1px #C0C0C0;
+}
+
+span.filter-counter {
+	text-align:								right;
+	font-size:								9pt;
+	display:								block;
+	min-height:								18px;
+}
+
+
+input[type="search"] {
+	-webkit-appearance:						searchfield;
+}
+
+input[type="date"]::-webkit-search-cancel-button {
+	-webkit-appearance:						none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance:						searchfield-cancel-button;
 }
