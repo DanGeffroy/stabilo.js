@@ -23,6 +23,7 @@ var DEFAULT_COUNTER_ID = "filter-counter";
 var DEFAULT_FILTER_HIDE = false;
 
 With parameters:
+
 | Parameter        | Type      | Required | Default value         | Description                                                     |
 |:-----------------|:----------|:---------|:----------------------|:----------------------------------------------------------------|
 | `elmt`           | "object"  | YES      | N/A                   | The search field input                                          |
@@ -54,12 +55,12 @@ With parameters:
 
 ```html
 	<input type="search"
-		   onkeyup="applyFilter(this);"
-		   onsearch="this.onkeyup();"
-		   placeholder="Search...">
-	<span id="filter-counter" class="filter-counter"> </span>
-	<div class="elements-container">
-		<div class="element" style="display: block;">
+		   onkeyup="applyFilter(this, '.elem', '.cont', 'green', true, 'counter');"
+		   onsearch="this.onkeyup()"
+		   placeholder="Search">
+	<span id="counter" class="filter-counter"> </span>
+	<div class="cont">
+		<div class="elem" style="display: block;">
 			<span>Probably a title</span>
 			<p>Some random text that no one read</p>
 			<span>what about a date 2017-07-17</span>
