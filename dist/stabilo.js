@@ -37,13 +37,16 @@ function applyFilter(elmt, elmSelector, parentSelector, underlineClass, hideOnFi
 		var h1 = elm.html();
 		var t1 = elm.text();
 		var txt = removeAccents(t1.toUpperCase());
-		if (filter.length > 0 && txt.indexOf(filter) > -1) {
+		if (txt.indexOf(filter) > -1) {
 			var indexes = [];
 			var i = 0;
-			while (i < txt.length && txt.indexOf(filter, i) > -1) {
+			while (filter.length > 0 && i < txt.length && txt.indexOf(filter, i) > -1) {
 				i = txt.indexOf(filter, i);
 				indexes.push(i);
 				i++;
+			}
+			if (hideOnFilter && filter.length === 0) {
+				e.style.display = 'block';
 			}
 			for (var k = 0 ; k < indexes.length ; k++) {
 				var r1 = t1.substr(indexes[k], filter.length);
@@ -57,7 +60,7 @@ function applyFilter(elmt, elmSelector, parentSelector, underlineClass, hideOnFi
 				t1 = elm.text();
 				txt = removeAccents(t1.toUpperCase());
 			}
-		} else if (hideOnFilter) {
+		} else if (hideOnFilter && filter.length > 0) {
 			e.style.display = 'none';
 		}
 	});
